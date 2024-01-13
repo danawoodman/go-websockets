@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websocket Client</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body hx-boost>
+    <main>
+      <div id="disconnected-msg">Disconnected</div>
+
+      <h1>Websocket Client</h1>
+
+      <h2>Send Message</h2>
+      <form>
+        <input type="text" />
+        <button type="submit">Send</button>
+      </form>
+
+      <form
+        action="/trigger"
+        method="POST"
+        hx-post="/trigger"
+        hx-swap="afterend"
+        hx-target="#triggers"
+      >
+        <button type="submit">Trigger via POST</button>
+      </form>
+      <ul id="triggers"></ul>
+
+      <h2>Message</h2>
+      <pre></pre>
+
+      <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+      <script type="module" src="scripts.js"></script>
+    </main>
+  </body>
+</html>
